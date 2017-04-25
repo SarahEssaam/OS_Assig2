@@ -34,7 +34,35 @@ public class Assig2 {
         to.setLayout(new BoxLayout(to, BoxLayout.Y_AXIS));
         to.add(hp);
         to.add(hp1);
-        f.getContentPane().add(to);
+        JPanel m = new JPanel();
+        m.setLayout(new BoxLayout(m,BoxLayout.X_AXIS));
+        m.add(to);
+        ////////////////
+        JPanel hp_ = new JPanel();
+        hp_.setLayout(new BoxLayout(hp_, BoxLayout.X_AXIS));
+        JPanel vp_ = new JPanel();
+        vp_.setLayout(new BoxLayout(vp_, BoxLayout.Y_AXIS));
+        vp_.add(new Label("limit"));
+        vp_.add(new Label("base"));
+        hp_.add(vp_);
+        JTextField t_ = new JTextField("p");
+        hp_.add(t_);
+        JPanel hp1_ = new JPanel();
+        hp1_.setLayout(new BoxLayout(hp1_, BoxLayout.X_AXIS));
+        JPanel vp1_ = new JPanel();
+        vp1_.setLayout(new BoxLayout(vp1_, BoxLayout.Y_AXIS));
+        vp1_.add(new Label("limit"));
+        vp1_.add(new Label("base"));
+        hp1_.add(vp1_);
+        JTextField t1_ = new JTextField("p");
+        hp1_.add(t1_);
+        JPanel to_ = new JPanel();
+        to_.setLayout(new BoxLayout(to_, BoxLayout.Y_AXIS));
+        to_.add(hp_);
+        to_.add(hp1_);
+        /////////////////
+        m.add(to_);
+        f.getContentPane().add(m);
         f.pack();
         f.setVisible(true);
     }
