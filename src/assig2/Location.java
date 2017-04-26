@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package assig2;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.Comparator;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Dell
- */
 public class Location {
     int start;
     int size;
@@ -55,19 +48,20 @@ public class Location {
         
         vPanel1.add(new JLabel(String.valueOf(start)));
        // vPanel1.add(new JLabel(String.valueOf(size)));
-        vPanel1.add(new JLabel(String.valueOf(start+size)));
+        vPanel1.add(new JLabel(String.valueOf(size+start)));
         
         JTextField t = new JTextField(name);
         t.setBackground(color);
-        vPanel2.add(t);
-        vPanel2.setPreferredSize(new Dimension(100, (int)ratio*size));
         
+        vPanel2.add(t);
+        vPanel2.setPreferredSize(new Dimension(100, (int)(ratio*size)));
+        vPanel1.setPreferredSize(new Dimension(50, (int)(ratio*size)));
         panel.add(vPanel1);
         panel.add(vPanel2);
-        
         return panel;
     }
     void setName(int i){
         name += String.valueOf(i);
     }
 }
+

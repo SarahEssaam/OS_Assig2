@@ -12,10 +12,13 @@ import java.awt.Color;
  * @author Dell
  */
 public class Process_ extends Location{
-    Process_(int st,int s){
+    int ID;
+    Process_(int st,int s,int id){
         super(st,s);
-        name = "             P";
+        name = "          P";
         color = new Color(255,175,175);
+        ID = id;
+        
     }
     
 }

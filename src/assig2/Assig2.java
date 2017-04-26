@@ -10,7 +10,8 @@ import java.awt.*;
 public class Assig2 {
 
     public static void main(String[] args) {
-        new test();
+      // new test();
+      new MainFrame();
      /*   JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ////////////////////

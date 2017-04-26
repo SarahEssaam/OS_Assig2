@@ -19,12 +19,14 @@ public class test {
        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        f.add(p);
      // f.pack();
+     JPanel p1 = new JPanel();
+     p1.add(p);
      f.setSize(500,500);  
      f.setVisible(true);
        p.add(new JButton("button2"));
-       f.add(p); 
-//f.repaint();
-//f.revalidate();
+       f.add(p1); 
+       p.removeAll();
+       
     
     }
 }
