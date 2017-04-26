@@ -10,8 +10,10 @@ import java.awt.*;
 public class Assig2 {
 
     public static void main(String[] args) {
-        JFrame f = new JFrame();
+        new test();
+     /*   JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ////////////////////
         JPanel hp = new JPanel();
         hp.setLayout(new BoxLayout(hp, BoxLayout.X_AXIS));
         JPanel vp = new JPanel();
@@ -19,7 +21,8 @@ public class Assig2 {
         vp.add(new Label("limit"));
         vp.add(new Label("base"));
         hp.add(vp);
-        JTextField t = new JTextField("p");
+        JTextField t = new JTextField("pL");
+        t.setBackground(Color.LIGHT_GRAY);
         hp.add(t);
         JPanel hp1 = new JPanel();
         hp1.setLayout(new BoxLayout(hp1, BoxLayout.X_AXIS));
@@ -29,6 +32,8 @@ public class Assig2 {
         vp1.add(new Label("base"));
         hp1.add(vp1);
         JTextField t1 = new JTextField("p");
+        t1.setBackground(new Color(255, 175, 175));
+        System.out.println(Color.black);
         hp1.add(t1);
         JPanel to = new JPanel();
         to.setLayout(new BoxLayout(to, BoxLayout.Y_AXIS));
@@ -64,7 +69,7 @@ public class Assig2 {
         m.add(to_);
         f.getContentPane().add(m);
         f.pack();
-        f.setVisible(true);
+        f.setVisible(true);*/
     }
     
 }
