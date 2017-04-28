@@ -304,6 +304,8 @@ public class inputPanel extends javax.swing.JPanel {
 
     private void btnHoleFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoleFinishActionPerformed
         Data.finishHole();
+        btnHoleFinish.setEnabled(false);
+        btnHoleAll.setEnabled(false);
     }//GEN-LAST:event_btnHoleFinishActionPerformed
 
     private void btnProcessDealloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessDealloActionPerformed
