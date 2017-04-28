@@ -1,5 +1,8 @@
 package assig2;
 
+import static assig2.outPanel.cardPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -18,25 +21,27 @@ public class MainFrame {
     public MainFrame() {
         frame = new JFrame("Simulation");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame .setLocationRelativeTo(null);
-       // frame.setSize(650,450);
+        //frame .setLocationRelativeTo(null);
+        frame.setSize(650,450);
         Container c = frame.getContentPane();
         c.setLayout(new BoxLayout(c, BoxLayout.X_AXIS));
         in = new inputPanel();
         out = new JPanel();
-        out.setPreferredSize(new Dimension(200, 400));
+        out.setLayout(new BoxLayout(out, BoxLayout.Y_AXIS));
+    new outPanel();
+        out.add(cardPanel);
         out.setBorder(new TitledBorder("Output"));
+        out.setPreferredSize(new Dimension(200,650));
         c.add(in);
         c.add(out);
-        frame.pack();
+       // frame.pack();
         frame.setVisible(true);
         new Data(); 
-        
     }
-    static void updateOut(JPanel newOut){
-        out.removeAll();
-        out.add(newOut);
-        out.repaint();
+     
+    static void updateOut(JPanel newOut,String name){
+        outPanel.addCard(newOut, name);
         out.revalidate();
+        frame.revalidate();
     }
 }

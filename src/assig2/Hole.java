@@ -13,8 +13,7 @@ import java.awt.Color;
  */
 public class Hole extends Location{
     Hole(int st,int s){
-        super(st,s);
-        color = new Color(192,192,192);
-        name = "          h";
+        super(st,s,"          H",new Color(192,192,192));
+        name = "          H";
     }
 }
