@@ -167,6 +167,7 @@ public class Data {
         list.add(i,h);
         list.remove(i+1);
         if(i==0){
+            if(list.size()>1)
             if(list.get(1) instanceof Hole){
                 //hole count unchanged
                 list.get(0).setSize(list.get(0).getSize()+list.get(1).getSize());

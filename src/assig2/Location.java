@@ -78,12 +78,12 @@ public class Location {
         vPanel2.setLayout(new BoxLayout(vPanel2, BoxLayout.Y_AXIS));
         
         lblStart = new JLabel(String.valueOf(start));
-        lblStart.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    //    lblStart.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
         lblStart.setForeground(Color.BLACK);
         vPanel1.add(lblStart,BorderLayout.NORTH);
         
         lblsize = new JLabel(String.valueOf(size));
-        lblsize.setAlignmentX(Component.RIGHT_ALIGNMENT);
+     //   lblsize.setAlignmentX(Component.RIGHT_ALIGNMENT);
         lblsize.setForeground(Color.blue);
         vPanel1.add(lblsize,BorderLayout.CENTER);
         
