@@ -1,0 +1,29 @@
+1) The user inputs starting address and size for the first hole then press "Allocate" button
+2) step 1 is repeated till all holes are are given to the system
+3)"finish" button is then pressed
+
+Checks and Assumptions:
+-Since it was required that the user inputs the starting address for the hole not only its size, 
+it was assumed that the holes might not always be continous,and gaps between holes may arise.
+-the gaps between the holes are assumed to be unaccessable processes that are give in the initial state
+of the problem. Represented in the output as "Black" boxes.
+-the user may enter starting addresses in any order and they will be sorted in the GUI chart output.
+-the user may enter interfering or consecutive holes with no gap between them, and they will
+be treated as one hole.
+
+-holes are shown as "Grey" boxes in the GUI
+-Starting address is shown in "black font"
+ while size is shown in "Blue font"
+
+4) you can now see the output which is initial state graph of the memory holes and initial unaccessable processes
+5) to start allocating a process enter its size
+6) Choose the technique to allocate process: "First", "Best", or "Worst" fit.
+-note that for each process allocation you can choose a different technique
+7) press "Allocate: button to see the memory graph after the process allocation
+-note that processes are represented as "Pink" boxes
+-and each process takes a name starting from P0, P1, ...and so on where 0,1,..is the process number or ID
+
+8)To deallocate a process enter its number or ID as seen in the graph and press "deallocate" button
+9) repeat allocation using different techniques and deaalocation as you like.
+10)end the program from the x above
+ 	

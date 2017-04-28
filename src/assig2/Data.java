@@ -163,6 +163,7 @@ public class Data {
                  }
             }
         }
+        try{
         Hole h = new Hole(list.get(i).getStart(),list.get(i).getSize());
         list.add(i,h);
         list.remove(i+1);
@@ -194,6 +195,9 @@ public class Data {
                 list.get(i).setSize(list.get(i).getSize()+list.get(i+1).getSize());
                 list.remove(i+1);
             }
+        }
+        }
+         catch(IndexOutOfBoundsException e){
         }
         updatePanel();
     }
