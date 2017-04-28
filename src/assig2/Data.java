@@ -5,7 +5,6 @@
  */
 package assig2;
 
-
 import java.awt.Button;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,13 +19,12 @@ public class Data {
     private static JPanel verticalList;
     private static int pCount;
     private static int hCount;
-    Data(JPanel p){
+    Data(){
         list = new ArrayList<>();
-        outputPanel = p;
-//        verticalList = new JPanel();
-//        verticalList.setLayout(new BoxLayout(verticalList, BoxLayout.Y_AXIS));
         pCount = 0;
         hCount = 0;
+        verticalList = new JPanel();
+        verticalList.setLayout(new BoxLayout(verticalList,BoxLayout.Y_AXIS));
     }
     static void addHole(int start,int size){
         Hole h = new Hole(start,size);
@@ -35,9 +33,6 @@ public class Data {
     }
     static void finishHole(){
         Collections.sort(list,new LocationComparator());
-        for(int i = 0; i<list.size(); i++){
-            System.out.println(list.get(i).getStart());
-        }
         //error check
         int firstEnd;
         int secondStart;
@@ -60,15 +55,17 @@ public class Data {
                 i--;
             }
         }
+        clearPanel();
         updatePanel();
     }
     static void addProcess(int size,String logic){
         if(logic.compareTo("First")==0){
            addFProcess(size);
         }
-        else if(logic.compareTo("Base")==0){
+        else if(logic.compareTo("Best")==0){
             addBProcess(size);
         }
+        clearPanel();
         updatePanel();
     }
     private static void addFProcess(int size){
@@ -76,8 +73,8 @@ public class Data {
         for(int i =0; i<s;i++){
             if((list.get(i) instanceof Hole)&&(list.get(i).getSize()>=size)){
                 //allocate
-                Process_ p = new Process_(list.get(i).getStart(), size, pCount++);
-                p.setName(pCount);
+                Process_ p = new Process_(list.get(i).getStart(), size, pCount);
+                p.setName(pCount++);
                 list.add(i,p);
                 
                 if(size==list.get(i+1).getSize()){
@@ -95,36 +92,55 @@ public class Data {
     }
     private static void addBProcess(int size){
         int s = list.size();
-        ArrayList<Integer> sizes = new ArrayList<>(hCount+1);
+        int difference = 1000000;
+        int newDiff, index = 0;
         for(int i = 0;i < s;i++){
-            if(list.get(i) instanceof Hole)
-            sizes.set(i, list.get(i).getSize());
+            if(list.get(i) instanceof Hole){
+                newDiff = list.get(i).getSize()-size;
+                if((newDiff < difference)&&(newDiff>=0)){
+                    difference = newDiff;
+                    index = i;
+                }
+            }
         }
-        Collections.sort(sizes);
-        System.out.println(sizes.get(0));
         
+        if(difference!=1000000){
+            //allocate process at index
+            Process_ p = new Process_(list.get(index).getStart(), size, pCount);
+            p.setName(pCount++);
+            if(size==list.get(index).getSize()){
+                    //the process took the whole hole space
+                    list.remove(index);
+                    list.add(index,p);
+                    hCount--;
+                }
+                else{
+                list.add(index,p);
+                    list.get(index+1).setStart(list.get(index).getEnd());
+                    list.get(index+1).setSize(list.get(index+1).getSize()-size);
+                }
+        }
     }
     static void removeProcess(int i){
-        
+        list.remove(i);
+        if(list.size()>i+1){
+            if((list.get(i) instanceof Hole)&&(list.get(i+1) instanceof Hole)){
+                list.get(i).setSize(list.get(i).getSize() + list.get(i+1).getSize());
+                list.remove(i+1);
+            }
+        }
+        clearPanel();
         updatePanel();
     }
     private static void updatePanel(){
-       verticalList = new JPanel();
-       verticalList.setLayout(new BoxLayout(verticalList,BoxLayout.Y_AXIS));
-        outputPanel.removeAll();
-//        outputPanel.repaint();
-//        outputPanel.revalidate();
         for(int i = 0;i < list.size();i++){
             verticalList.add(list.get(i).getPanel());
         }
-        
-       outputPanel.add(verticalList);
-       outputPanel.repaint();
-       outputPanel.revalidate();
-       
+       MainFrame.updateOut(verticalList);
     }
-    static void clear(){
-        
+    private static void clearPanel(){
+        verticalList.removeAll();
+        verticalList.repaint();
+        verticalList.revalidate();
     }
-
 }

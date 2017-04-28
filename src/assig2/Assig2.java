@@ -11,7 +11,8 @@ public class Assig2 {
 
     public static void main(String[] args) {
       // new test();
-      new MainFrame();
+      //new MainFrame();
+     new CardLayoutExample();
      /*   JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ////////////////////
